@@ -1,0 +1,30 @@
+{
+	"name": "developers-connection-app",
+	"version": "1.0.0",
+	"description": "The application for developers to post and like comments of one another ",
+	"main": "index.js",
+	"repository": "git@github.com:vd89/developers-connection-app.git",
+	"author": "vd89 <dixitvora@gmail.com>",
+	"license": "MIT",
+	"private": true,
+	"type": "module",
+	"dependencies": {
+		"compress": "^0.99.0",
+		"cors": "^2.8.5",
+		"debug": "^4.1.1",
+		"express": "^4.17.1",
+		"formidable": "^1.2.2",
+		"helmet": "^4.1.0",
+		"jsonwebtoken": "^8.5.1",
+		"lodash": "^4.17.20",
+		"mongoose": "^5.10.2",
+		"morgan": "^1.10.0"
+	},
+	"devDependencies": {
+		"cross-env": "^7.0.2",
+		"nodemon": "^2.0.4"
+	},
+	"scripts": {
+		"dev": "nodemon ."
+	}
+}
