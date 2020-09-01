@@ -4,6 +4,7 @@ import config from './server/config/config.js';
 import dbController from './server/controller/dbController.js';
 
 const { port } = config;
+
 const server = http.createServer(app);
 // Database
 dbController();

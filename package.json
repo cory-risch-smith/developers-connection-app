@@ -9,10 +9,11 @@
 	"private": true,
 	"type": "module",
 	"dependencies": {
+		"bcrypt": "^5.0.0",
 		"compress": "^0.99.0",
 		"cors": "^2.8.5",
-		"debug": "^4.1.1",
 		"express": "^4.17.1",
+		"express-validator": "^6.6.1",
 		"formidable": "^1.2.2",
 		"helmet": "^4.1.0",
 		"jsonwebtoken": "^8.5.1",
