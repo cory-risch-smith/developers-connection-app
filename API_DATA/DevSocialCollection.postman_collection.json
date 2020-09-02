@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "e0fbc164-8d1a-44b4-9289-b6ecd10196ea",
+		"name": "DevSocialCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UsersRoute_CRUD",
+			"item": [
+				{
+					"name": "Get All Users ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{user}}",
+							"host": [
+								"{{user}}"
+							]
+						},
+						"description": "to Get the Users List "
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"james\",\n    \"lastName\":\"smith\",\n    \"email\":\"jsmith@gmail.com\",\n    \"password\":\"admin123\",\n    \"password2\":\"admin123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{user}}",
+							"host": [
+								"{{user}}"
+							]
+						},
+						"description": "To Register User with required Fieds "
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{user}}/5f4fc5705fdbf4a59bb32956",
+							"host": [
+								"{{user}}"
+							],
+							"path": [
+								"5f4fc5705fdbf4a59bb32956"
+							]
+						},
+						"description": "Get user Data By ID "
+					},
+					"response": []
+				},
+				{
+					"name": "AddAbout ",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"about\":\"Hay i am a web Developer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{user}}/5f4fc5705fdbf4a59bb32956",
+							"host": [
+								"{{user}}"
+							],
+							"path": [
+								"5f4fc5705fdbf4a59bb32956"
+							]
+						},
+						"description": "About user is added to user"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUserByID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{user}}/5f4fc1dc743534a27c118c3f",
+							"host": [
+								"{{user}}"
+							],
+							"path": [
+								"5f4fc1dc743534a27c118c3f"
+							]
+						},
+						"description": "Remove user from the data base"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "AuthRoute_LOGIN_LOGOUT",
+			"item": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "PostRoute_CREATE_COMMENT",
+			"item": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Test Route ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{serverApi}}",
+					"host": [
+						"{{serverApi}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
