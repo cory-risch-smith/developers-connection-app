@@ -1,10 +1,12 @@
+/** @format */
+
 import Express from 'express';
+import authController from '../controller/authController.js';
+import validator from '../helpers/validator.js';
 
 const authRoute = new Express.Router();
 
-authRoute.get('/', (req, res) => {
-	const data = 'this is the Auth Route';
-	return res.status(200).json({ msg: true, data });
-});
+// User signIn
+authRoute.post('/logIn', validator.loginRules(), validator.validate, authController.signIn);
 
 export default authRoute;

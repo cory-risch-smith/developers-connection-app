@@ -9,7 +9,7 @@ export default {
   // Get all Users
   userList: async (req, res) => {
     try {
-      const users = await User.find().select('-hashedPassword');
+      const users = await User.find().select('-password');
       return res.status(200).json({ data: { msg: true, users } });
     } catch (err) {
       return res.status(500).json({ data: { msg: false, error: err } });
@@ -23,8 +23,8 @@ export default {
       if (isUser) {
         return res.status(400).json({ data: { msg: false, user: 'USER_ALREADY_EXISTS' } });
       }
-      const user = new User({ firstName, lastName, email, password });
-      await user.save();
+      const user = await User.create({ firstName, lastName, email });
+      await user.setPassword(password);
       return res.status(200).json({ data: { msg: true, result } });
     } catch (err) {
       console.log(err);
@@ -33,7 +33,7 @@ export default {
   },
   // View single user
   userRead: async (req, res) => {
-    req.profile.hashedPassword = undefined;
+    req.profile.password = undefined;
     const profile = req.profile;
     return res.status(200).json({ data: { msg: true, profile } });
   },
@@ -42,9 +42,10 @@ export default {
     try {
       let user = req.profile;
       user = extend(user, req.body);
+      await user.setPassword(req.body.password);
       user.updated = Date.now();
       await user.save();
-      user.hashedPassword = undefined;
+      user.password = undefined;
       return res.status(200).json({ data: { msg: true, user } });
     } catch (err) {
       console.log(err);
@@ -56,7 +57,7 @@ export default {
     try {
       const user = req.profile;
       const deletedUser = await user.remove();
-      deletedUser.hashedPassword = undefined;
+      deletedUser.password = undefined;
       return res.status(200).json({ data: { msg: true, deletedUser } });
     } catch (err) {
       return res.status(500).json({ data: { msg: false, error: err } });

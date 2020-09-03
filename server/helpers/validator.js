@@ -19,6 +19,13 @@ export default {
       body('lastName', 'Last Name is required').not().isEmpty(),
       body('email', 'Email valid email address').isEmail(),
       body('about', 'About is required').not().isEmpty(),
+      body('password', 'Minimum 6 Characters are required').isLength({ min: 6 }),
+    ];
+  },
+  loginRules: () => {
+    return [
+      body('email', 'Email valid email address').isEmail(),
+      body('password', 'Password is required').not().isEmpty(),
     ];
   },
   validate: (req, res, next) => {
